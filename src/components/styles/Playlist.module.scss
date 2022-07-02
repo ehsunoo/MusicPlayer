@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-height: 10vw;
+  margin: 0.5rem 1rem;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: white 0px 1px 20px;
+    background-color: white;
+  }
+
+  &.selected {
+    box-shadow: white 0px 1px 20px;
+    background-color: yellow;
+  }
+
+  img {
+    max-height: 8vw;
+    border-radius: 10px;
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 1rem;
+
+    h4 {
+      margin: 0;
+      font-family: "Oswald", sans-serif;
+      font-size: 1.7vw;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1vw;
+    }
+  }
+}
