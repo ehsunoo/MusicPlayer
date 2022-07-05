@@ -5,11 +5,11 @@ import Songs from "../components/Songs";
 
 import styles from "./styles/Home.module.scss";
 
-function Home() {
+function Home({ isLoading, setIsLoading }) {
   return (
     <div className={styles.container}>
       <Navbar />
-      <Songs />
+      <Songs isLoading={isLoading} setIsLoading={setIsLoading} />
       <Footer />
     </div>
   );

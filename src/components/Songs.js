@@ -9,7 +9,7 @@ import styles from "./styles/Songs.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-function Songs() {
+function Songs({ isLoading, setIsLoading }) {
   const [songsData, setSongsData] = useState([]);
 
   useEffect(() => {
@@ -19,6 +19,7 @@ function Songs() {
   const getSongs = async () => {
     await axios.get("/data.json").then((res) => {
       setSongsData(JSON.parse(res.data));
+      setIsLoading(false);
     });
   };
 
@@ -29,11 +30,15 @@ function Songs() {
         <h2>Featured Songs</h2>
       </div>
       <div className={styles.songs}>
-        {songsData.map((song) => (
-          <Link key={song.id} to={`/song/${song.id}`}>
-            <Card name={song.name} artist={song.artist} cover={song.cover} />
-          </Link>
-        ))}
+        {!isLoading ? (
+          songsData.map((song) => (
+            <Link key={song.id} to={`/song/${song.id}`}>
+              <Card name={song.name} artist={song.artist} cover={song.cover} />
+            </Link>
+          ))
+        ) : (
+          <h2 className={styles.loading}>Loading ...</h2>
+        )}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./styles/Song.module.scss";
 import Player from "../components/Player";
@@ -8,13 +8,12 @@ import Footer from "../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic, faHome } from "@fortawesome/free-solid-svg-icons";
 
-function Song() {
+function Song({ isLoading, setIsLoading }) {
   let params = useParams();
   let songID = parseInt(params.id);
 
   const [songsList, setSongsList] = useState([]);
   const [currentSong, setCurrentSong] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getSong();
