@@ -35,15 +35,19 @@ function Song() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.playlist}>
-        <div className={styles.playlistHeader}>
-          <h2 className={styles.playlistTitle}>Playlist</h2>
-          <Link to="/">
-            <FontAwesomeIcon className={styles.home} icon={faHome} color="white" size="2x" />
-          </Link>
+      {currentSong ? (
+        <div className={styles.playlist}>
+          <div className={styles.playlistHeader}>
+            <h2 className={styles.playlistTitle}>Playlist</h2>
+            <Link to="/">
+              <FontAwesomeIcon className={styles.home} icon={faHome} color="white" size="2x" />
+            </Link>
+          </div>
+          <Playlist songsList={songsList} currentSongID={currentSong.id} />
         </div>
-        <Playlist songsList={songsList} currentSongID={currentSong.id} />
-      </div>
+      ) : (
+        ""
+      )}
       <div className={styles.play}>
         <div className={styles.detailsContainer}>
           <div className={styles.cover}>
