@@ -15,6 +15,8 @@ function Song({ isLoading, setIsLoading }) {
   const [songsList, setSongsList] = useState([]);
   const [currentSong, setCurrentSong] = useState({});
 
+  document.title = "Music Player";
+
   useEffect(() => {
     getSong();
   }, [songID]);
