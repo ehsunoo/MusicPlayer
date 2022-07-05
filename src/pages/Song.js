@@ -36,23 +36,20 @@ function Song({ isLoading, setIsLoading }) {
 
   const homeIconHandler = () => {
     document.title = "Music Player";
+    setIsLoading(true);
   };
 
   return (
-    <div className={styles.container}>
-      {!isLoading ? (
-        <div className={styles.playlist}>
-          <div className={styles.playlistHeader}>
-            <h2 className={styles.playlistTitle}>Playlist</h2>
-            <Link to="/" onClick={homeIconHandler}>
-              <FontAwesomeIcon className={styles.home} icon={faHome} color="white" size="2x" />
-            </Link>
-          </div>
-          <Playlist songsList={songsList} currentSongID={currentSong.id} />
+    <div className={styles.container} style={{ display: isLoading ? "none" : "grid" }}>
+      <div className={styles.playlist}>
+        <div className={styles.playlistHeader}>
+          <h2 className={styles.playlistTitle}>Playlist</h2>
+          <Link to="/" onClick={homeIconHandler}>
+            <FontAwesomeIcon className={styles.home} icon={faHome} color="white" size="2x" />
+          </Link>
         </div>
-      ) : (
-        ""
-      )}
+        <Playlist songsList={songsList} currentSongID={currentSong.id} />
+      </div>
       <div className={styles.play}>
         <div className={styles.detailsContainer}>
           <div className={styles.cover}>
@@ -66,8 +63,8 @@ function Song({ isLoading, setIsLoading }) {
             </div>
           </div>
         </div>
-        {!isLoading ? <Player currentSong={currentSong} songList={songsList} setSong={setCurrentSong} /> : ""}
-        {!isLoading ? <Footer /> : ""}
+        <Player currentSong={currentSong} songList={songsList} setSong={setCurrentSong} />
+        <Footer />
       </div>
     </div>
   );
