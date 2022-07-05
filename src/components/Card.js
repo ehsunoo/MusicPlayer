@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./styles/Card.module.scss";
 
-function Song(props) {
+function Card(props) {
   return (
     <div className={styles.container}>
       <div className={styles.cover}>
@@ -16,4 +16,4 @@ function Song(props) {
   );
 }
 
-export default Song;
+export default Card;
