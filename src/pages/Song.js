@@ -14,6 +14,7 @@ function Song() {
 
   const [songsList, setSongsList] = useState([]);
   const [currentSong, setCurrentSong] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getSong();
@@ -30,16 +31,21 @@ function Song() {
       });
       setSongsList(JSON.parse(res.data));
       setCurrentSong(songData[0]);
+      setIsLoading(false);
     });
   });
 
+  const homeIconHandler = () => {
+    document.title = "Music Player";
+  };
+
   return (
     <div className={styles.container}>
-      {currentSong ? (
+      {!isLoading ? (
         <div className={styles.playlist}>
           <div className={styles.playlistHeader}>
             <h2 className={styles.playlistTitle}>Playlist</h2>
-            <Link to="/">
+            <Link to="/" onClick={homeIconHandler}>
               <FontAwesomeIcon className={styles.home} icon={faHome} color="white" size="2x" />
             </Link>
           </div>
@@ -61,8 +67,8 @@ function Song() {
             </div>
           </div>
         </div>
-        <Player currentSong={currentSong} songList={songsList} setSong={setCurrentSong} />
-        <Footer />
+        {!isLoading ? <Player currentSong={currentSong} songList={songsList} setSong={setCurrentSong} /> : ""}
+        {!isLoading ? <Footer /> : ""}
       </div>
     </div>
   );
