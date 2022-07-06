@@ -36,7 +36,7 @@ function Songs({ isLoading, setIsLoading }) {
               key={song.id}
               to={`/song/${song.id}`}
               onClick={() => {
-                setIsLoading(false);
+                setIsLoading(true);
               }}
             >
               <Card name={song.name} artist={song.artist} cover={song.cover} />
