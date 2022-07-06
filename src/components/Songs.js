@@ -32,7 +32,13 @@ function Songs({ isLoading, setIsLoading }) {
       <div className={styles.songs}>
         {!isLoading ? (
           songsData.map((song) => (
-            <Link key={song.id} to={`/song/${song.id}`}>
+            <Link
+              key={song.id}
+              to={`/song/${song.id}`}
+              onClick={() => {
+                setIsLoading(false);
+              }}
+            >
               <Card name={song.name} artist={song.artist} cover={song.cover} />
             </Link>
           ))

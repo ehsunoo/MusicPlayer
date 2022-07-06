@@ -22,7 +22,7 @@ function Song({ isLoading, setIsLoading }) {
   }, [songID]);
 
   useEffect(() => {
-    document.title = currentSong ? `${currentSong.name} | ${currentSong.artist}` : "Music Player";
+    document.title = !isLoading ? `${currentSong.name} | ${currentSong.artist}` : "Music Player";
   }, [currentSong]);
 
   const getSong = useCallback(async () => {
