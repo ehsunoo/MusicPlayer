@@ -9,6 +9,8 @@ A modern Web-Based music player, built with ReactJS.
 
 [![React Router](https://img.shields.io/badge/Reactrouter-6.3.0-green)](#)
 
+[![Axios](https://img.shields.io/badge/Axios-0.27.2-brown)](#)
+
 [![HTML5](https://img.shields.io/badge/HTML-5-orange)](#)
 
 [![SASS](https://img.shields.io/badge/Saas-1.52.2-red)](#)
