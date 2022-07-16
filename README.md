@@ -20,6 +20,7 @@ A modern Web-Based music player, built with ReactJS.
 
 ## Features
 - Modern UI with dark mode
+- Responsive design
 - Functional components based
 - Audio controllering ability
 
